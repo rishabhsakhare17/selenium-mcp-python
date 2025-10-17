@@ -18,5 +18,4 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://example.com/"
-Repository = "https://example.com/repo"
+Repository = "https://github.com/rishabhsakhare17/selenium-mcp-python"
