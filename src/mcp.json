@@ -1,0 +1,81 @@
+{
+  "name": "selenium-mcp",
+  "description": "Control a Selenium browser from ChatGPT, Cursor, or other MCP clients using Selenium WebDriver.",
+  "entry_point": "selenium_mcp_server.py",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "open_browser",
+      "description": "Start a new Selenium browser session.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "headless": { "type": "boolean", "default": false }
+        }
+      }
+    },
+    {
+      "name": "go_to_url",
+      "description": "Navigate the browser to a specific URL.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string" }
+        },
+        "required": ["url"]
+      }
+    },
+    {
+      "name": "click_element",
+      "description": "Click an element on the current web page using a CSS selector.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "selector": {
+            "type": "string",
+            "description": "CSS selector of the element to click."
+          }
+        },
+        "required": ["selector"]
+      }
+    },
+    {
+      "name": "get_page_text",
+      "description": "Extract the visible text content from the current page."
+    },
+    {
+      "name": "screenshot",
+      "description": "Capture a screenshot of the current page. Optionally save it to disk.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "save_to_disk": {
+            "type": "boolean",
+            "default": true,
+            "description": "If true, saves the screenshot to a local file. Otherwise returns a Base64 string."
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "string" },
+          "path": {
+            "type": "string",
+            "description": "Path to saved screenshot (if save_to_disk is true)."
+          },
+          "image_base64": {
+            "type": "string",
+            "description": "Base64-encoded screenshot (if save_to_disk is false)."
+          }
+        }
+      }
+    },
+    {
+      "name": "close_browser",
+      "description": "Close the Selenium browser session and clean up resources."
+    }
+  ]
+}

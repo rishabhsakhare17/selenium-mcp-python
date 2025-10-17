@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "selenium-mcp-python"
+version = "0.1.0"
+description = "A minimal Python scaffold for a Selenium MCP."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Rishabh Sakhare"}]
+license = {text = "MIT"}
+dependencies = [
+  "selenium>=4.10",
+  "python-dotenv>=1.0",
+  "mcp>=1.0.0",
+  "uvicorn>=0.24.0"
+]
+
+[project.urls]
+Homepage = "https://example.com/"
+Repository = "https://example.com/repo"
